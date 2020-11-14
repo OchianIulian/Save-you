@@ -32,7 +32,7 @@ class SplashScreen : Fragment() {
 
         logo.startAnimation(animation)
         val alphaAnimation = AlphaAnimation(0.0f, 1.0f)
-        alphaAnimation.duration = 2000
+        alphaAnimation.duration = 3000
         appName.startAnimation(alphaAnimation)
 
         animation.setAnimationListener(object : Animation.AnimationListener {
