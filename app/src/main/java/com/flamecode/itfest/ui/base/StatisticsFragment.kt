@@ -9,6 +9,7 @@ import android.widget.ImageView
 import androidx.transition.TransitionInflater
 import com.flamecode.itfest.R
 import com.flamecode.itfest.manager.FragmentManager
+import com.flamecode.itfest.network.AnalyticsApi
 import com.flamecode.itfest.ui.settings.SettingsFragment
 
 /**
@@ -25,6 +26,9 @@ class StatisticsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val analyticsApi =  AnalyticsApi(context!!)
+        analyticsApi.getSummary()
 
         val inflater = TransitionInflater.from(requireContext())
         enterTransition = inflater.inflateTransition(R.transition.fade)
