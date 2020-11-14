@@ -1,11 +1,16 @@
-package com.flamecode.itfest
+package com.flamecode.itfest.ui.base.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import com.flamecode.itfest.R
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        Toast.makeText(this, "Test", Toast.LENGTH_SHORT).show()
     }
 }
