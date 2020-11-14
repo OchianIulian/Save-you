@@ -53,7 +53,7 @@ class SettingsFragment : Fragment() {
     }
 
     private fun getData(view: View) {
-        switch_online = view.findViewById(R.id.switch_online)
-        switch_dark = view.findViewById(R.id.switch_dark)
+     //   switch_online = view.findViewById(R.id.switch_online)
+      //  switch_dark = view.findViewById(R.id.switch_dark)
     }
 }
