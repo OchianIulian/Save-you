@@ -16,8 +16,8 @@ import com.github.gcacace.signaturepad.views.SignaturePad
 
 class SignatureFragment : Fragment() {
 
-    private lateinit var clearBtn : Button
-    private lateinit var saveBtn : Button
+    private lateinit var clearBtn: Button
+    private lateinit var saveBtn: Button
     private lateinit var sign: SignaturePad
     private lateinit var bitmap: Bitmap
 
@@ -56,11 +56,11 @@ class SignatureFragment : Fragment() {
     }
 
     private fun onClickListeners() {
-        clearBtn.setOnClickListener{
+        clearBtn.setOnClickListener {
             sign.clear()
         }
 
-        saveBtn.setOnClickListener{
+        saveBtn.setOnClickListener {
             Toast.makeText(context, "Signature Saved", Toast.LENGTH_SHORT).show()
 
         }
@@ -71,6 +71,6 @@ class SignatureFragment : Fragment() {
         clearBtn = view.findViewById(R.id.retry)
         saveBtn = view.findViewById(R.id.save_signature)
         sign = view.findViewById(R.id.signature_pad)
-        bitmap = BitmapFactory.decodeResource(resources, R.drawable.reload);
+        bitmap = BitmapFactory.decodeResource(resources, R.drawable.reload)
     }
 }

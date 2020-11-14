@@ -2,13 +2,14 @@ package com.flamecode.itfest.manager
 
 import android.content.Context
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.flamecode.itfest.utils.AppConstants
 
 /**
  * This manager class have the role to transfer from a fragment to other easier
  * @author Iomava
  */
-class FragmentManager(private val fragmentManager: Context?) {
+class FragmentManager(private val fragmentManager: FragmentManager?) {
 
     /**
      * This function add a new fragment
@@ -16,7 +17,7 @@ class FragmentManager(private val fragmentManager: Context?) {
      */
     fun addFragment(fragment: Fragment){
 
-        val fragmentTransition = fragmentManager.beginTransaction()
+        val fragmentTransition = fragmentManager!!.beginTransaction()
         fragmentTransition.add(AppConstants.containerLayout, fragment).addToBackStack(fragment.javaClass.canonicalName).commit()
     }
 
@@ -26,7 +27,7 @@ class FragmentManager(private val fragmentManager: Context?) {
      */
     fun replaceFragment(fragment: Fragment){
 
-        val fragmentTransition = fragmentManager.beginTransaction()
+        val fragmentTransition = fragmentManager!!.beginTransaction()
         fragmentTransition.replace(AppConstants.containerLayout, fragment)
             .addToBackStack(null).commit()
     }

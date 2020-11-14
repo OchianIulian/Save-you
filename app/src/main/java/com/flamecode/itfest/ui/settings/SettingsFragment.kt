@@ -1,14 +1,16 @@
 package com.flamecode.itfest.ui.settings
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CompoundButton
 import android.widget.Switch
+import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.transition.TransitionInflater
 import com.flamecode.itfest.R
+import com.flamecode.itfest.manager.FragmentManager
+import com.flamecode.itfest.ui.base.DiagnosticFragment
 
 class SettingsFragment : Fragment() {
 
@@ -19,33 +21,38 @@ class SettingsFragment : Fragment() {
         exitTransition = inflater.inflateTransition(R.transition.slide_right)
     }
 
-    private lateinit var switch_online : Switch
-    private lateinit var switch_dark: Switch
+    private lateinit var switchOnline: Switch
+    private lateinit var switchDark: Switch
+    private lateinit var diagnosticTextView : TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-         val view =inflater.inflate(R.layout.fragment_settings, container, false)
+
+        val view = inflater.inflate(R.layout.fragment_settings, container, false)
         getData(view)
 
-        switch_online.setOnClickListener{
-            if(switch_online.isChecked){
-                switch_online.text = "Online"
+        switchOnline.setOnClickListener {
+
+            if (switchOnline.isChecked) {
+
+                switchOnline.text = "Online"
                 //TODO: se trece la modul online
             } else {
-                switch_online.text = "Offline"
+                switchOnline.text = "Offline"
                 //TODO: se trece la modul offline
             }
         }
 
-        switch_dark.setOnClickListener{
-            if(switch_dark.isChecked){
-                switch_dark.text = "Dark mode"
+        switchDark.setOnClickListener {
+
+            if (switchDark.isChecked) {
+
+                switchDark.text = "Dark mode"
                 //TODO: se trece la modul dark
             } else {
-                switch_dark.text = "LightMode"
+                switchDark.text = "LightMode"
                 //TODO: se trece la modul light
             }
         }
@@ -53,7 +60,14 @@ class SettingsFragment : Fragment() {
     }
 
     private fun getData(view: View) {
-        switch_online = view.findViewById(R.id.switch_online)
-        switch_dark = view.findViewById(R.id.switch_dark)
+
+        switchOnline = view.findViewById(R.id.switch_online)
+        switchDark = view.findViewById(R.id.switch_dark)
+        diagnosticTextView = view.findViewById(R.id.diagnosticTextView)
+
+        diagnosticTextView.setOnClickListener {
+
+            FragmentManager(childFragmentManager).addFragment(DiagnosticFragment())
+        }
     }
 }

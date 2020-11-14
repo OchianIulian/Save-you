@@ -35,18 +35,19 @@ class DiagnosticFragment : Fragment() {
     }
 
     private fun onClicklisteners() {
+
         firstStade.setOnClickListener {
-            com.flamecode.itfest.manager.FragmentManager(context).addFragment(FirstStadeFragment())
+            com.flamecode.itfest.manager.FragmentManager(childFragmentManager).addFragment(FirstStadeFragment())
         }
         secondStade.setOnClickListener {
-            com.flamecode.itfest.manager.FragmentManager(context).addFragment(SecondStadeFragment())
+            com.flamecode.itfest.manager.FragmentManager(childFragmentManager).addFragment(SecondStadeFragment())
         }
         thirdStade.setOnClickListener {
-            com.flamecode.itfest.manager.FragmentManager(context).addFragment(ThirdStadeFragment())
+            com.flamecode.itfest.manager.FragmentManager(childFragmentManager).addFragment(ThirdStadeFragment())
             coronaCounter = true
         }
         donate.setOnClickListener {
-            com.flamecode.itfest.manager.FragmentManager(context).addFragment(DonnateFragment())
+            com.flamecode.itfest.manager.FragmentManager(childFragmentManager).addFragment(DonnateFragment())
         }
     }
 

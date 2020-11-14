@@ -48,6 +48,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
         googleMap.mapType = GoogleMap.MAP_TYPE_NORMAL
         googleMap.uiSettings.isCompassEnabled = true
+        googleMap.uiSettings.isZoomControlsEnabled = true
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(context!!)
 
