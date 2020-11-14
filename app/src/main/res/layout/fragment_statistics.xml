@@ -26,7 +26,7 @@
         android:textColor="#000"
         android:textSize="16sp"
         android:fontFamily="@font/notosans_bolditalic"
-        android:text="@string/your_location"/>
+        android:text="Your location"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
         android:textColor="#000"
         android:textSize="24sp"
         android:fontFamily="@font/notosans_bold"
-        android:text="@string/new_york_usa"/>
+        android:text="New Your, USA"/>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -67,7 +67,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
-                    android:text="@string/global"
+                    android:text="Global"
                     android:fontFamily="@font/notosans_bold"
                     android:textSize="24sp"
                     android:layout_gravity="end"/>
@@ -87,7 +87,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/cases"
+                            android:text="Cases"
                             android:textSize="20sp"
                             android:textColor="#000"
                             android:fontFamily="@font/notosans_bold" />
@@ -113,7 +113,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/deaths"
+                            android:text="Deaths"
                             android:textSize="20sp"
                             android:textColor="#000"
                             android:fontFamily="@font/notosans_bold" />
@@ -139,7 +139,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/recovered"
+                            android:text="Recovered"
                             android:textSize="20sp"
                             android:textColor="#000"
                             android:fontFamily="@font/notosans_bold" />
