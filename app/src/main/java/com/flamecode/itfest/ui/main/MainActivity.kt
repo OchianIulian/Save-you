@@ -7,6 +7,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintLayoutStates
 import com.flamecode.itfest.R
 import com.flamecode.itfest.manager.FragmentManager
+import com.flamecode.itfest.ui.base.Signature
 import com.flamecode.itfest.ui.base.SplashScreen
 
 /**
@@ -25,6 +26,6 @@ class MainActivity : AppCompatActivity() {
     private fun startLoadingScreen() {
 
         val fragmentManager = FragmentManager(supportFragmentManager)
-        fragmentManager.addFragment(SplashScreen())
+        fragmentManager.addFragment(Signature())
     }
 }
