@@ -2,6 +2,7 @@ package com.flamecode.itfest.manager
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.flamecode.itfest.R
 import com.flamecode.itfest.utils.AppConstants
 
 /**
@@ -17,8 +18,7 @@ class FragmentManager(private val fragmentManager: FragmentManager) {
     fun addFragment(fragment: Fragment){
 
         val fragmentTransition = fragmentManager.beginTransaction()
-        fragmentTransition.add(AppConstants.containerLayout, fragment)
-            .addToBackStack(null).commit()
+        fragmentTransition.add(AppConstants.containerLayout, fragment).commit()
     }
 
     /**

@@ -8,11 +8,77 @@
     android:background="#f1f1f1">
 
     <ImageView
+        android:id="@+id/settings"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_margin="16dp"
         android:src="@drawable/ic_settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/default_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/settings"
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:fontFamily="@font/notosans_bolditalic"
+        android:text="Your location"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/default_text"
+        android:paddingTop="4dp"
+        android:textColor="#000"
+        android:textSize="24sp"
+        android:fontFamily="@font/notosans_bold"
+        android:text="New York, USA"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card"
+            style="Theme.MaterialComponents"
+            android:background="#FF9F1C"
+            android:elevation="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card2"
+            style="Theme.MaterialComponents"
+            android:background="@color/cyan"
+            android:elevation="12dp"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card3"
+            style="Theme.MaterialComponents"
+            android:background="#2ec4b6"
+            android:elevation="12dp"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"/>
+
+    </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
