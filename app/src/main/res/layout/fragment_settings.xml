@@ -32,18 +32,6 @@
         android:layout_marginStart="16dp"
         />
 
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:text="@string/onoff"
-        android:textColor="@color/black"
-        android:textSize="19sp"
-        android:background=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="300dp"/>
 
     <ImageView
         android:layout_width="match_parent"
@@ -70,13 +58,31 @@
         />
 
     <Switch
-        android:id="@+id/switch2"
-        android:layout_width="300dp"
+        android:id="@+id/switch_online"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginTop="350dp"
-        android:text="@string/darkmode"
+        android:text="@string/onoff"
         android:textColor="@color/black"
-        android:textSize="19sp"
+        android:textSize="22sp"
+        android:fontFamily="@font/notosans_regular"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="300dp"/>
+
+    <Switch
+        android:id="@+id/switch_dark"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="350dp"
+        android:text="Dark/Light"
+        android:fontFamily="@font/notosans_regular"
+        android:textColor="@color/black"
+        android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
