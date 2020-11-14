@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.base.Signature">
+    tools:context=".ui.base.SignatureFragment"
+    android:background="#FFF">
 
 
-    <com.kyanogen.signatureview.SignatureView
-        android:id="@+id/signature_view"
+    <com.github.gcacace.signaturepad.views.SignaturePad
+        android:id="@+id/signature_pad"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"/>
 
     <Button
         android:id="@+id/save_signature"
