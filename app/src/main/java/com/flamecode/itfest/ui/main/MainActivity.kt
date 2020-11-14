@@ -2,13 +2,9 @@ package com.flamecode.itfest.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.ConstraintLayoutStates
 import com.flamecode.itfest.R
 import com.flamecode.itfest.manager.FragmentManager
-import com.flamecode.itfest.ui.base.Signature
-import com.flamecode.itfest.ui.base.SplashScreen
+import com.flamecode.itfest.ui.base.SignatureFragment
 
 /**
  * This will parent for all the fragments
@@ -26,6 +22,6 @@ class MainActivity : AppCompatActivity() {
     private fun startLoadingScreen() {
 
         val fragmentManager = FragmentManager(supportFragmentManager)
-        fragmentManager.addFragment(Signature())
+        fragmentManager.addFragment(SignatureFragment())
     }
 }
