@@ -1,6 +1,5 @@
 package com.flamecode.itfest.ui.base
 
-import android.media.Image
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,13 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RelativeLayout
-import androidx.fragment.app.FragmentManager
 import com.flamecode.itfest.R
 import com.flamecode.itfest.ui.base.Diagnostics.DonnateFragment
 import com.flamecode.itfest.ui.base.Diagnostics.FirstStadeFragment
 import com.flamecode.itfest.ui.base.Diagnostics.SecondStadeFragment
 import com.flamecode.itfest.ui.base.Diagnostics.ThirdStadeFragment
-import com.flamecode.itfest.utils.AppConstants
 
 class DiagnosticFragment : Fragment() {
 
@@ -39,17 +36,17 @@ class DiagnosticFragment : Fragment() {
 
     private fun onClicklisteners() {
         firstStade.setOnClickListener {
-            fragmentManager!!.beginTransaction().replace(AppConstants.containerLayout, FirstStadeFragment())
+            com.flamecode.itfest.manager.FragmentManager(context).addFragment(FirstStadeFragment())
         }
         secondStade.setOnClickListener {
-            fragmentManager!!.beginTransaction().replace(AppConstants.containerLayout, SecondStadeFragment())
+            com.flamecode.itfest.manager.FragmentManager(context).addFragment(SecondStadeFragment())
         }
         thirdStade.setOnClickListener {
-            fragmentManager!!.beginTransaction().replace(AppConstants.containerLayout, ThirdStadeFragment())
+            com.flamecode.itfest.manager.FragmentManager(context).addFragment(ThirdStadeFragment())
             coronaCounter = true
         }
         donate.setOnClickListener {
-            fragmentManager!!.beginTransaction().replace(AppConstants.containerLayout, DonnateFragment())
+            com.flamecode.itfest.manager.FragmentManager(context).addFragment(DonnateFragment())
         }
     }
 

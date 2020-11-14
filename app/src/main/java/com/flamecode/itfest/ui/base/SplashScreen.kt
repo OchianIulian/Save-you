@@ -13,7 +13,6 @@ import android.widget.TextView
 import androidx.transition.TransitionInflater
 import com.flamecode.itfest.R
 import com.flamecode.itfest.manager.FragmentManager
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
