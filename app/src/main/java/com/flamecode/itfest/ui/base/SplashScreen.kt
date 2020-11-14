@@ -10,14 +10,25 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils.loadAnimation
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.transition.TransitionInflater
 import com.flamecode.itfest.R
 import com.flamecode.itfest.manager.FragmentManager
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 
 class SplashScreen : Fragment() {
 
     lateinit var logo : ImageView
     lateinit var appName: TextView
     lateinit var animation : Animation
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val inflater = TransitionInflater.from(requireContext())
+        exitTransition = inflater.inflateTransition(R.transition.fade)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -30,10 +41,15 @@ class SplashScreen : Fragment() {
 
     private fun startAnimation() {
 
-        logo.startAnimation(animation)
+
         val alphaAnimation = AlphaAnimation(0.0f, 1.0f)
         alphaAnimation.duration = 3000
-        appName.startAnimation(alphaAnimation)
+
+        MainScope().launch {
+
+            appName.startAnimation(alphaAnimation)
+            logo.startAnimation(animation)
+        }
 
         animation.setAnimationListener(object : Animation.AnimationListener {
 
