@@ -29,6 +29,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.SupportMapFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.MainScope
@@ -64,6 +65,7 @@ class StatisticsFragment : Fragment() {
     private lateinit var activeLocalTextView: TextView
 
     private lateinit var userLocationTextView: TextView
+    private lateinit var mapImageView : ImageView
 
     private var listAddress: List<Address>? = null
 
@@ -166,7 +168,7 @@ class StatisticsFragment : Fragment() {
 
         settingsImageView = view.findViewById(R.id.settings)
         settingsImageView.setOnClickListener {
-            fragmentManager.replaceFragment(SettingsFragment())
+            fragmentManager.addFragment(SettingsFragment())
         }
 
         casesGlobalTextView = view.findViewById(R.id.casesGlobal)
@@ -182,6 +184,12 @@ class StatisticsFragment : Fragment() {
         todayCasesTextView = view.findViewById(R.id.todayCases)
         totalTestsTextView = view.findViewById(R.id.totalTests)
         activeLocalTextView = view.findViewById(R.id.active_local)
+
+        mapImageView = view.findViewById(R.id.mapImageView)
+        mapImageView.setOnClickListener {
+
+            fragmentManager.addFragment(MapFragment())
+        }
     }
 
     private fun updateThirdMaterialCard(countryData: CountryData) {
@@ -273,8 +281,6 @@ class StatisticsFragment : Fragment() {
             }.addOnCanceledListener {
                 Toast.makeText(context, "Error getting the location", Toast.LENGTH_LONG).show()
             }
-
-
 
         return list
     }

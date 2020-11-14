@@ -18,7 +18,7 @@ class FragmentManager(private val fragmentManager: FragmentManager) {
     fun addFragment(fragment: Fragment){
 
         val fragmentTransition = fragmentManager.beginTransaction()
-        fragmentTransition.add(AppConstants.containerLayout, fragment).commit()
+        fragmentTransition.add(AppConstants.containerLayout, fragment).addToBackStack(fragment.javaClass.canonicalName).commit()
     }
 
     /**
