@@ -1,10 +1,17 @@
 package com.flamecode.itfest.network
 
 import android.content.Context
+import android.util.Log
 import android.widget.Toast
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
+import java.io.BufferedReader
+import java.io.IOException
+import java.io.InputStream
+import java.io.InputStreamReader
+import java.net.HttpURLConnection
+import java.net.URL
 
 
 /**
@@ -28,17 +35,18 @@ class AnalyticsApi(private val context: Context) {
      */
     fun getSummary() {
 
-        val client = OkHttpClient().newBuilder()
-            .build()
+        val client = OkHttpClient()
         val request: Request = Request.Builder()
-            .url("https://api.covid19api.com/summary")
-            .method("GET", null)
+            .url("https://coronavirus-19-api.herokuapp.com/all")
             .build()
 
         val thread = Thread {
             try {
 
                 val response: Response = client.newCall(request).execute()
+                val message = response.message()
+                val body = response.body()
+
                 if (response.isSuccessful) {
 
                     val message = response.message()
@@ -60,4 +68,10 @@ class AnalyticsApi(private val context: Context) {
         thread.start()
 
     }
+
+    fun test() {
+
+
+    }
+
 }

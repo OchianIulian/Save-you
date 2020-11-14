@@ -28,7 +28,8 @@ class StatisticsFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         val analyticsApi =  AnalyticsApi(context!!)
-        analyticsApi.getSummary()
+      //  analyticsApi.getSummary()
+        analyticsApi.test()
 
         val inflater = TransitionInflater.from(requireContext())
         enterTransition = inflater.inflateTransition(R.transition.fade)
