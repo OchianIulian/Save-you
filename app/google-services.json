@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "86214560912",
+    "firebase_url": "https://it-fest-covid.firebaseio.com",
+    "project_id": "it-fest-covid",
+    "storage_bucket": "it-fest-covid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:86214560912:android:6512c691c4b77b4f9ddc15",
+        "android_client_info": {
+          "package_name": "com.flamecode.itfest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "86214560912-le37t8d10hce3qs9hj53hb3cs7pepqqk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBsLVkzUjfeMCMK2sznTnT2LLQ1Z7IaOo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "86214560912-le37t8d10hce3qs9hj53hb3cs7pepqqk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

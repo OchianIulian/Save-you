@@ -1,4 +1,4 @@
-package com.flamecode.itfest.ui.base.main
+package com.flamecode.itfest.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
