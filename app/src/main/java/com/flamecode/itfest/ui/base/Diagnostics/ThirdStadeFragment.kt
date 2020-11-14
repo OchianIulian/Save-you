@@ -19,6 +19,7 @@ class ThirdStadeFragment : Fragment() {
 
     private lateinit var countDownTimer: CountDownTimer
     private var milisDays:Long = 1000*60*1440*14
+    private var sustainingTime: Int = 15
 
     private lateinit var duration: TextView
 
@@ -47,6 +48,10 @@ class ThirdStadeFragment : Fragment() {
                     cancel()
                 }else{
                     duration.text = (timeRemaining+1).toString()
+                    if((timeRemaining+1).toInt() < sustainingTime){
+                        //sendNotification
+                        sustainingTime = (timeRemaining+1).toInt()
+                    }
                 }
             }
 
