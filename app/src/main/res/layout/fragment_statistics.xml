@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.base.StatisticsFragment"
-    android:background="#f1f1f1">
+    android:background="#f1f1f1"
+    tools:context=".ui.base.StatisticsFragment">
 
     <ImageView
         android:id="@+id/settings"
@@ -14,51 +14,51 @@
         android:layout_margin="16dp"
         android:src="@drawable/ic_settings"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/default_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/settings"
+        android:fontFamily="@font/notosans_bolditalic"
+        android:text="Your location"
         android:textColor="#000"
         android:textSize="16sp"
-        android:fontFamily="@font/notosans_bolditalic"
-        android:text="Your location"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/settings" />
 
     <TextView
         android:id="@+id/user_loc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/default_text"
+        android:fontFamily="@font/notosans_bold"
         android:paddingTop="4dp"
+        android:text="New Your, USA"
         android:textColor="#000"
         android:textSize="24sp"
-        android:fontFamily="@font/notosans_bold"
-        android:text="New Your, USA"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/default_text" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="16dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card"
-            android:background="#FF9F1C"
-            app:cardBackgroundColor="#FF9F1C"
-            android:elevation="12dp"
             android:layout_width="match_parent"
-            android:layout_height="160dp">
+            android:layout_height="160dp"
+            android:background="#FF9F1C"
+            android:elevation="12dp"
+            app:cardBackgroundColor="#FF9F1C">
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -67,11 +67,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end"
                     android:layout_margin="16dp"
-                    android:text="Global"
                     android:fontFamily="@font/notosans_bold"
-                    android:textSize="24sp"
-                    android:layout_gravity="end"/>
+                    android:text="Global"
+                    android:textSize="24sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -88,20 +88,20 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosans_bold"
                             android:text="Cases"
-                            android:textSize="20sp"
                             android:textColor="#000"
-                            android:fontFamily="@font/notosans_bold" />
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/casesGlobal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
+                            android:fontFamily="@font/notosans_bold"
                             android:text=""
-                            android:textSize="28sp"
                             android:textColor="#f1f1f1"
-                            android:fontFamily="@font/notosans_bold" />
+                            android:textSize="28sp" />
 
                     </LinearLayout>
 
@@ -114,20 +114,20 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosans_bold"
                             android:text="Deaths"
-                            android:textSize="20sp"
                             android:textColor="#000"
-                            android:fontFamily="@font/notosans_bold" />
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/deathGlobal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
+                            android:fontFamily="@font/notosans_bold"
                             android:text=""
-                            android:textSize="28sp"
                             android:textColor="#f1f1f1"
-                            android:fontFamily="@font/notosans_bold" />
+                            android:textSize="28sp" />
 
                     </LinearLayout>
 
@@ -140,20 +140,20 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosans_bold"
                             android:text="Recovered"
-                            android:textSize="20sp"
                             android:textColor="#000"
-                            android:fontFamily="@font/notosans_bold" />
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/recoveredGlobal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
+                            android:fontFamily="@font/notosans_bold"
                             android:text=""
-                            android:textSize="28sp"
                             android:textColor="#f1f1f1"
-                            android:fontFamily="@font/notosans_bold" />
+                            android:textSize="28sp" />
 
                     </LinearLayout>
 
@@ -165,128 +165,128 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card2"
-            android:background="@color/cyan"
-            app:cardBackgroundColor="@color/cyan"
-            android:elevation="12dp"
-            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
-            android:layout_height="160dp" >
+            android:layout_height="160dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/cyan"
+            android:elevation="12dp"
+            app:cardBackgroundColor="@color/cyan">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-                    <LinearLayout
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
+                        android:fontFamily="@font/notosans_bold"
+                        android:text="Active:"
+                        android:textColor="#000"
+                        android:textSize="20sp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Active:"
-                            android:textSize="20sp"
-                            android:textColor="#000"
-                            android:fontFamily="@font/notosans_bold" />
-
-                        <TextView
-                            android:id="@+id/activeGlobal"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text=""
-                            android:textSize="28sp"
-                            android:textColor="#f1f1f1"
-                            android:fontFamily="@font/notosans_bold" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/activeGlobal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Critic: "
-                            android:textSize="20sp"
-                            android:textColor="#000"
-                            android:fontFamily="@font/notosans_bold" />
-
-                        <TextView
-                            android:id="@+id/criticGlobal"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text=""
-                            android:textSize="28sp"
-                            android:textColor="#f1f1f1"
-                            android:fontFamily="@font/notosans_bold" />
-
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Cases/Mill"
-                            android:textSize="16sp"
-                            android:textColor="#000"
-                            android:fontFamily="@font/notosans_bold" />
-
-                        <TextView
-                            android:id="@+id/casesPerMillion"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text=""
-                            android:textSize="20sp"
-                            android:textColor="#f1f1f1"
-                            android:fontFamily="@font/notosans_bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text=" Deaths/Mill"
-                            android:textSize="16sp"
-                            android:textColor="#000"
-                            android:fontFamily="@font/notosans_bold" />
-
-                        <TextView
-                            android:id="@+id/deathPerMillion"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text=""
-                            android:textSize="20sp"
-                            android:textColor="#f1f1f1"
-                            android:fontFamily="@font/notosans_bold" />
-
-                    </LinearLayout>
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/notosans_bold"
+                        android:text=""
+                        android:textColor="#f1f1f1"
+                        android:textSize="28sp" />
 
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosans_bold"
+                        android:text="Critic: "
+                        android:textColor="#000"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/criticGlobal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/notosans_bold"
+                        android:text=""
+                        android:textColor="#f1f1f1"
+                        android:textSize="28sp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosans_bold"
+                        android:text="Cases/Mill"
+                        android:textColor="#000"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/casesPerMillion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/notosans_bold"
+                        android:text=""
+                        android:textColor="#f1f1f1"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosans_bold"
+                        android:text=" Deaths/Mill"
+                        android:textColor="#000"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/deathPerMillion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/notosans_bold"
+                        android:text=""
+                        android:textColor="#f1f1f1"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card3"
-            android:background="#2ec4b6"
-            app:cardBackgroundColor="#2ec4b6"
-            android:elevation="12dp"
-            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
-            android:layout_height="160dp">
+            android:layout_height="160dp"
+            android:layout_marginTop="16dp"
+            android:background="#2ec4b6"
+            android:elevation="12dp"
+            app:cardBackgroundColor="#2ec4b6">
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -295,11 +295,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end"
                     android:layout_margin="16dp"
-                    android:text="Local"
                     android:fontFamily="@font/notosans_bold"
-                    android:textSize="24sp"
-                    android:layout_gravity="end"/>
+                    android:text="Local"
+                    android:textSize="24sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -316,20 +316,20 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosans_bold"
                             android:text="Today Cases"
-                            android:textSize="20sp"
                             android:textColor="#000"
-                            android:fontFamily="@font/notosans_bold" />
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/todayCases"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
+                            android:fontFamily="@font/notosans_bold"
                             android:text=""
-                            android:textSize="28sp"
                             android:textColor="#f1f1f1"
-                            android:fontFamily="@font/notosans_bold" />
+                            android:textSize="28sp" />
 
                     </LinearLayout>
 
@@ -342,20 +342,20 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosans_bold"
                             android:text="Total Tests"
-                            android:textSize="20sp"
                             android:textColor="#000"
-                            android:fontFamily="@font/notosans_bold" />
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/totalTests"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
+                            android:fontFamily="@font/notosans_bold"
                             android:text=""
-                            android:textSize="28sp"
                             android:textColor="#f1f1f1"
-                            android:fontFamily="@font/notosans_bold" />
+                            android:textSize="28sp" />
 
                     </LinearLayout>
 
@@ -368,20 +368,20 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosans_bold"
                             android:text="Active"
-                            android:textSize="20sp"
                             android:textColor="#000"
-                            android:fontFamily="@font/notosans_bold" />
+                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/active_local"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
+                            android:fontFamily="@font/notosans_bold"
                             android:text=""
-                            android:textSize="28sp"
                             android:textColor="#f1f1f1"
-                            android:fontFamily="@font/notosans_bold" />
+                            android:textSize="28sp" />
 
                     </LinearLayout>
 
@@ -392,5 +392,29 @@
         </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/backgroundImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:background="@drawable/round_background"
+            android:scaleX="0.80"
+            android:scaleY="0.80" />
+
+        <ImageView
+            android:id="@+id/mapImageView"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_map" />
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
