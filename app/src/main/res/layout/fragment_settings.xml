@@ -79,7 +79,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="350dp"
-        android:text="Dark/Light"
+        android:text="Light"
         android:fontFamily="@font/notosans_regular"
         android:textColor="@color/black"
         android:textSize="22sp"
