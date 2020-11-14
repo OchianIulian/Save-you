@@ -43,4 +43,16 @@
         app:layout_constraintTop_toBottomOf="@+id/duration_quarantine"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <ImageView
+        android:id="@+id/stop"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/pause"
+        android:backgroundTint="#000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="10dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
