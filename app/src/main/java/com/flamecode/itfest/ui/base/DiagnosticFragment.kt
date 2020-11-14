@@ -61,7 +61,4 @@ class DiagnosticFragment : Fragment() {
         gobackBtn = view.findViewById(R.id.goBack)
     }
 
-
-
-
 }
