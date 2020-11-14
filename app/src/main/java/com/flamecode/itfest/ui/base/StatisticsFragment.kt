@@ -1,8 +1,13 @@
 package com.flamecode.itfest.ui.base
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
+import android.location.Address
+import android.location.Geocoder
+import android.location.Location
 import android.os.Bundle
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,12 +25,15 @@ import com.flamecode.itfest.model.GlobalData
 import com.flamecode.itfest.ui.settings.SettingsFragment
 import com.flamecode.itfest.utils.FormatNumber
 import com.flamecode.itfest.utils.KTD
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationServices
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import java.net.URL
-
 
 /**
  * This fragment will have a role around the home, being the first fragment that
@@ -36,20 +44,28 @@ import java.net.URL
  */
 class StatisticsFragment : Fragment() {
 
-    lateinit var settingsImageView: ImageView
-    lateinit var fragmentManager: FragmentManager
-    lateinit var globalAnalytics: GlobalData
+    private lateinit var settingsImageView: ImageView
+    private lateinit var fragmentManager: FragmentManager
+    private lateinit var globalAnalytics: GlobalData
     lateinit var countryData: CountryData
+    lateinit var localCountryData: CountryData
 
-    lateinit var casesGlobalTextView: TextView
-    lateinit var deathGlobalTextView: TextView
-    lateinit var recoveredGlobalTextView: TextView
+    private lateinit var casesGlobalTextView: TextView
+    private lateinit var deathGlobalTextView: TextView
+    private lateinit var recoveredGlobalTextView: TextView
 
-    lateinit var activeGlobalTextView: TextView
-    lateinit var criticGlobalTextView: TextView
-    lateinit var casesPerMillionTextView: TextView
-    lateinit var deathPerMillionTextView: TextView
+    private lateinit var activeGlobalTextView: TextView
+    private lateinit var criticGlobalTextView: TextView
+    private lateinit var casesPerMillionTextView: TextView
+    private lateinit var deathPerMillionTextView: TextView
 
+    private lateinit var todayCasesTextView: TextView
+    private lateinit var totalTestsTextView: TextView
+    private lateinit var activeLocalTextView: TextView
+
+    private lateinit var userLocationTextView: TextView
+
+    private var listAddress: List<Address>? = null
 
     companion object {
 
@@ -72,6 +88,12 @@ class StatisticsFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_statistics, container, false)
 
+        fragmentManager = FragmentManager(this.getFragmentManager()!!)
+
+        initViews(view)
+
+        listAddress = getLastLocationKnow()
+
         GlobalScope.launch(context = Dispatchers.IO) {
 
             val response = URL("$baseUrl/all").readText()
@@ -87,16 +109,11 @@ class StatisticsFragment : Fragment() {
             }
         }
 
-        fragmentManager = FragmentManager(this.getFragmentManager()!!)
-
-        initViews(view)
-
         return view
     }
 
     override fun onResume() {
         super.onResume()
-
 
         if (ContextCompat.checkSelfPermission(
                 context!!,
@@ -145,7 +162,6 @@ class StatisticsFragment : Fragment() {
         }
     }
 
-
     private fun initViews(view: View) {
 
         settingsImageView = view.findViewById(R.id.settings)
@@ -161,6 +177,22 @@ class StatisticsFragment : Fragment() {
         criticGlobalTextView = view.findViewById(R.id.criticGlobal)
         casesPerMillionTextView = view.findViewById(R.id.casesPerMillion)
         deathPerMillionTextView = view.findViewById(R.id.deathPerMillion)
+        userLocationTextView = view.findViewById(R.id.user_loc)
+
+        todayCasesTextView = view.findViewById(R.id.todayCases)
+        totalTestsTextView = view.findViewById(R.id.totalTests)
+        activeLocalTextView = view.findViewById(R.id.active_local)
+    }
+
+    private fun updateThirdMaterialCard(countryData: CountryData) {
+
+        MainScope().launch(context = Dispatchers.Main) {
+
+            val format = FormatNumber()
+            todayCasesTextView.text = format.format(countryData.todayCases.toString())
+            totalTestsTextView.text = format.format(countryData.totalTests.toString())
+            activeLocalTextView.text = format.format(countryData.active.toString())
+        }
     }
 
     private fun updateSecondMaterialCard(countryData: CountryData) {
@@ -184,5 +216,72 @@ class StatisticsFragment : Fragment() {
             deathGlobalTextView.text = format.format(globalData.deaths.toString())
             recoveredGlobalTextView.text = format.format(globalData.recovered.toString())
         }
+    }
+
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+    var list: List<Address>? = null
+
+    @SuppressLint("SetTextI18n")
+    private fun getLastLocationKnow(): List<Address>? {
+
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(context!!)
+
+        if (ActivityCompat.checkSelfPermission(
+                context!!,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                context!!,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+
+        }
+
+        fusedLocationClient.requestLocationUpdates(
+            LocationRequest(), LocationCallback(),
+            Looper.getMainLooper()
+        )
+
+
+        if (ActivityCompat.checkSelfPermission(
+                context!!,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                context!!,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+
+        }
+        fusedLocationClient.lastLocation
+            .addOnSuccessListener { location: Location? ->
+                list = getCountryName(location!!.latitude, location.longitude)
+                userLocationTextView.text = list!![0].locality + ", " + list!![0].countryName
+
+                GlobalScope.launch(context = Dispatchers.IO) {
+
+                    val response3 = URL("$baseUrl/countries/${list!![0].countryName}").readText()
+                    localCountryData = KTD().deserializeForCountryData(response3)
+
+                    GlobalScope.launch(context = Dispatchers.Main) {
+
+                        updateThirdMaterialCard(localCountryData)
+                    }
+                }
+
+            }.addOnCanceledListener {
+                Toast.makeText(context, "Error getting the location", Toast.LENGTH_LONG).show()
+            }
+
+
+
+        return list
+    }
+
+    private fun getCountryName(lat: Double, long: Double): List<Address> {
+
+        val geocoder = Geocoder(context)
+        return geocoder.getFromLocation(lat, long, 1)
     }
 }
