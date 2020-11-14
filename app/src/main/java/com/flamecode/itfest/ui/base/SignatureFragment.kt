@@ -15,19 +15,21 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import com.flamecode.itfest.R
+import com.github.gcacace.signaturepad.views.SignaturePad
 import com.kyanogen.signatureview.SignatureView
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.OutputStream
 import java.net.URI
+import java.security.SignatureSpi
 
 
 class SignatureFragment : Fragment() {
 
     private lateinit var clearBtn : Button
     private lateinit var saveBtn : Button
-    private lateinit var sign: SignatureView
+    private lateinit var sign: SignaturePad
    // private lateinit var bitmap: Bitmap
 
 
@@ -37,12 +39,24 @@ class SignatureFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_signature, container, false)
         getData(view)
+        functionalities()
         return view
+    }
+
+    private fun functionalities() {
+
+        onClickListeners()
+    }
+
+    private fun onClickListeners() {
+        clearBtn.setOnClickListener(){
+        }
     }
 
     private fun getData(view: View) {
         clearBtn = view.findViewById(R.id.retry)
         saveBtn = view.findViewById(R.id.save_signature)
+        sign = view.findViewById(R.id.signature_pad)
     }
 
 
