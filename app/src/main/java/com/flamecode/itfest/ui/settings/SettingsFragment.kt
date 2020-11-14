@@ -67,7 +67,7 @@ class SettingsFragment : Fragment() {
 
         diagnosticTextView.setOnClickListener {
 
-            FragmentManager(childFragmentManager).addFragment(DiagnosticFragment())
+            FragmentManager(fragmentManager).addFragment(DiagnosticFragment())
         }
     }
 }
