@@ -2,4 +2,21 @@
     <string name="app_name">SaveYou</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="my_personal_doctor">My personal doctor</string>
+    <string name="you_are_ok_everything_is_ok">You are ok? Everything is ok?</string>
+    <string name="you_think_you_are_sick_maybe_corona_stay_home">You think you are sick? Maybe Corona? Stay home!</string>
+    <string name="you_have_corona_virus_stay_quarantine_mode">You have corona virus! Stay quarantine mode</string>
+    <string name="help_humanity_donnating_blood_n_someone_needs_you">Help humanity donnating blood! \n Someone needs you</string>
+    <string name="the_donor_s_way_is_as_follows">The donor\'s way is as follows</string>
+    <string name="address_str_dr_caracas_constantin_no_2_8_sector_1_bucharest">Address: Str. Dr. Caracas Constantin no. 2-8, Sector 1, Bucharest</string>
+    <string name="tel_031_405_36_60_031_405_36_61_031_405_36_62_n_mobile_0745_34_32_35">Tel: 031.405.36.60 031.405.36.61 031.405.36.62 \n Mobile: 0745 34 32 35</string>
+    <string name="e_mail_ctsmb_b_astral_ro">E-mail: ctsmb@b.astral.ro</string>
+    <string name="donor_reception_program_m_f_7_30_13_30">Donor reception program: M-F / 7.30-13.30</string>
+    <string name="some_advice_for_protect_yourself_to_coronavirus">Some advice for protect yourself to coronavirus</string>
+    <string name="wash_your_hands_often_use_soap_and_water_or_alcohol_based_hand_sanitizer">Wash your hands often; use soap and water or alcohol-based hand sanitizer;</string>
+    <string name="wear_a_mask_when_physical_distance_is_not_possible">Wear a mask when physical distance is not possible;</string>
+    <string name="do_not_touch_your_eyes_nose_or_mouth">Do not touch your eyes, nose or mouth;</string>
+    <string name="when_you_cough_or_sneeze_cover_your_nose_and_mouth_with_an_elbow_crease_or_a_napkin">When you cough or sneeze, cover your nose and mouth with an elbow crease or a napkin</string>
+    <string name="stay_home_if_you_don_t_feel_well">Stay home if you don\'t feel well</string>
+    <string name="if_you_have_a_fever_cough_and_difficulty_breathing_consult_a_doctor">If you have a fever, cough and difficulty breathing, consult a doctor</string>
 </resources>

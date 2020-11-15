@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RelativeLayout
+import android.widget.Toast
 import com.flamecode.itfest.R
 import com.flamecode.itfest.ui.base.Diagnostics.DonnateFragment
 import com.flamecode.itfest.ui.base.Diagnostics.FirstStadeFragment
@@ -35,22 +36,25 @@ class DiagnosticFragment : Fragment() {
     }
 
     private fun onClicklisteners() {
+
         firstStade.setOnClickListener {
-            com.flamecode.itfest.manager.FragmentManager(context).addFragment(FirstStadeFragment())
+            com.flamecode.itfest.manager.FragmentManager(fragmentManager).addFragment(FirstStadeFragment())
         }
         secondStade.setOnClickListener {
-            com.flamecode.itfest.manager.FragmentManager(context).addFragment(SecondStadeFragment())
+            // com.flamecode.itfest.manager.FragmentManager(fragmentManager).addFragment(SecondStadeFragment())
+            Toast.makeText(context, "In development...", Toast.LENGTH_LONG).show()
         }
         thirdStade.setOnClickListener {
-            com.flamecode.itfest.manager.FragmentManager(context).addFragment(ThirdStadeFragment())
+            com.flamecode.itfest.manager.FragmentManager(fragmentManager).addFragment(ThirdStadeFragment())
             coronaCounter = true
         }
         donate.setOnClickListener {
-            com.flamecode.itfest.manager.FragmentManager(context).addFragment(DonnateFragment())
+            com.flamecode.itfest.manager.FragmentManager(fragmentManager).addFragment(DonnateFragment())
         }
     }
 
     private fun getData(view: View) {
+
         firstStade = view.findViewById(R.id.first_stade)
         secondStade  = view.findViewById(R.id.second_stade)
         thirdStade = view.findViewById(R.id.third_stade)

@@ -1,7 +1,6 @@
 package com.flamecode.itfest.ui.base
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +9,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils.loadAnimation
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.transition.TransitionInflater
 import com.flamecode.itfest.R
 import com.flamecode.itfest.manager.FragmentManager
@@ -18,9 +18,9 @@ import kotlinx.coroutines.launch
 
 class SplashScreen : Fragment() {
 
-    lateinit var logo : ImageView
+    lateinit var logo: ImageView
     lateinit var appName: TextView
-    lateinit var animation : Animation
+    lateinit var animation: Animation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,8 +29,10 @@ class SplashScreen : Fragment() {
         exitTransition = inflater.inflateTransition(R.transition.fade)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val view = inflater.inflate(R.layout.fragment_spalsh_screeen, container, false)
 
         getData(view)
